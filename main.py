@@ -191,7 +191,7 @@ async def on_ready():
   print('https://discordapp.com/api/oauth2/authorize?scope=bot&client_id=' + str(client.user.id))
   print('--------------------------------------------------------------------------')
   print('Logged in as:')
-  print("Username : "+client.user.name+" a.k.a. "+client.user+" with ID : "+client.user.id)
+  print("Username : "+str(client.user.name)+" a.k.a. "+str(client.user)+" with ID : "+str(client.user.id))
   print('╭─━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─╮')
   print(" LIVE CHAT LOG - See the Serverwise Logs For Details ")
   print("╰─━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━─╯")
@@ -300,8 +300,8 @@ async def on_message(message):
   if any(word in message.content.lower() for word in speakHeaders):
       try:
         await message.delete()
-       except:
-        break
+      except:
+        return
   
   # THE FOLLOWING ARE SOME 'SMART COMMANDS' that don't need a prefix to work. Heartbreak simply fishes out its instruction parameters if some conditions are met
   # To ensure better sensitivity, the commands are not case-sensitive since Heartbreak converts all text strings into lowercase English ASCII.
